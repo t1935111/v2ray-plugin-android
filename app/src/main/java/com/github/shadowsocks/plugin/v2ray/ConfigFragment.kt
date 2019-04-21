@@ -50,7 +50,7 @@ class ConfigFragment : PreferenceFragmentCompat(), Preference.OnPreferenceChange
         "websocket-http" -> Pair(null, false)
         "websocket-tls" -> Pair(null, true)
         "quic-tls" -> Pair("quic", false)
-        "http" -> Pair("http", true)
+        "h2" -> Pair("h2", true)
         else -> {
             check(false)
             Pair(null, false)
@@ -72,7 +72,7 @@ class ConfigFragment : PreferenceFragmentCompat(), Preference.OnPreferenceChange
         mode.value = when {
             options["mode"] ?: "websocket" == "quic" -> "quic-tls"
             "tls" in options -> "websocket-tls"
-            options["mode"] == "http" -> "http"
+            options["mode"] == "h2" -> "h2"
             else -> "websocket-http"
         }.also { onPreferenceChange(null, it) }
         host.text = options["host"] ?: "cloudfront.com"
@@ -95,8 +95,8 @@ class ConfigFragment : PreferenceFragmentCompat(), Preference.OnPreferenceChange
 
     override fun onPreferenceChange(preference: Preference?, newValue: Any?): Boolean {
         val (mode, tls) = readMode(newValue as String)
-        path.isEnabled = mode == null || mode == "http"
-        mux.isEnabled = mode == null || mode == "http"
+        path.isEnabled = mode == null || mode == "h2"
+        mux.isEnabled = mode == null || mode == "h2"
         certRaw.isEnabled = mode != null || tls
         return true
     }
