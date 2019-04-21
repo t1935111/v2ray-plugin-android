@@ -50,7 +50,7 @@ class ConfigFragment : PreferenceFragmentCompat(), Preference.OnPreferenceChange
         "websocket-http" -> Pair(null, false)
         "websocket-tls" -> Pair(null, true)
         "quic-tls" -> Pair("quic", false)
-        "http2" -> Pair("http", true)
+        "http" -> Pair("http", true)
         else -> {
             check(false)
             Pair(null, false)
