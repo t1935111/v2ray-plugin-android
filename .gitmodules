@@ -1,3 +1,3 @@
 [submodule "app/src/main/go/v2ray-plugin"]
 	path = app/src/main/go/v2ray-plugin
-	url = https://github.com/shadowsocks/v2ray-plugin.git
+	url = https://github.com/t1935111/v2ray-plugin.git
