@@ -4,7 +4,7 @@
         <item>websocket-http</item>
         <item>websocket-tls</item>
         <item>quic-tls</item>
-        <item>http2</item>
+        <item>http</item>
     </string-array>
     <string-array name="loglevels">
         <item>debug</item>
